@@ -1,0 +1,36 @@
+-- Dados iniciais. Substitua :organization_id pelo UUID da empresa.
+INSERT INTO payment_methods (organization_id,name) VALUES
+(:organization_id,'PIX'),(:organization_id,'Boleto'),(:organization_id,'Transferência'),
+(:organization_id,'Cartão de crédito'),(:organization_id,'Cartão de débito'),(:organization_id,'Dinheiro');
+
+INSERT INTO chart_accounts (organization_id,code,name,nature,group_name) VALUES
+(:organization_id,'1.01','Contratos de produção','INCOME','Receitas de eventos'),
+(:organization_id,'1.02','Venda de ingressos','INCOME','Receitas de eventos'),
+(:organization_id,'1.03','Patrocínios e apoios','INCOME','Receitas de eventos'),
+(:organization_id,'1.04','Locação de equipamentos próprios','INCOME','Receitas de eventos'),
+(:organization_id,'1.05','Outras receitas','INCOME','Outras receitas'),
+(:organization_id,'2.01','Estrutura e montagem','EXPENSE','Custos de eventos'),
+(:organization_id,'2.02','Som, iluminação e vídeo','EXPENSE','Custos de eventos'),
+(:organization_id,'2.03','Painéis de LED','EXPENSE','Custos de eventos'),
+(:organization_id,'2.04','Cenografia e decoração','EXPENSE','Custos de eventos'),
+(:organization_id,'2.05','Equipe e freelancers','EXPENSE','Custos de eventos'),
+(:organization_id,'2.06','Segurança e brigadistas','EXPENSE','Custos de eventos'),
+(:organization_id,'2.07','Recepção e credenciamento','EXPENSE','Custos de eventos'),
+(:organization_id,'2.08','Alimentação','EXPENSE','Custos de eventos'),
+(:organization_id,'2.09','Transporte e combustível','EXPENSE','Custos de eventos'),
+(:organization_id,'2.10','Hospedagem','EXPENSE','Custos de eventos'),
+(:organization_id,'2.11','Limpeza','EXPENSE','Custos de eventos'),
+(:organization_id,'2.12','Gráfica e comunicação visual','EXPENSE','Custos de eventos'),
+(:organization_id,'2.13','Licenças, taxas e direitos','EXPENSE','Custos de eventos'),
+(:organization_id,'2.14','Cachês e atrações','EXPENSE','Custos de eventos'),
+(:organization_id,'3.01','Salários','EXPENSE','Despesas internas'),
+(:organization_id,'3.02','Encargos e benefícios','EXPENSE','Despesas internas'),
+(:organization_id,'3.03','Pró-labore','EXPENSE','Despesas internas'),
+(:organization_id,'3.04','Aluguel e condomínio','EXPENSE','Despesas internas'),
+(:organization_id,'3.05','Energia, água e internet','EXPENSE','Despesas internas'),
+(:organization_id,'3.06','Softwares, hospedagem e domínios','EXPENSE','Despesas internas'),
+(:organization_id,'3.07','Contabilidade e serviços jurídicos','EXPENSE','Despesas internas'),
+(:organization_id,'3.08','Marketing e comercial','EXPENSE','Despesas internas'),
+(:organization_id,'3.09','Veículos: combustível e manutenção','EXPENSE','Despesas internas'),
+(:organization_id,'3.10','Equipamentos e manutenção','EXPENSE','Despesas internas'),
+(:organization_id,'3.11','Impostos e tarifas bancárias','EXPENSE','Despesas internas');
