@@ -1,33 +1,38 @@
 # Gestor Financeiro de Eventos
 
-Sistema de gestão financeira para empresas de produção, organização e projetos de eventos.
+Sistema para controlar o resultado individual de cada evento e as despesas internas da empresa.
 
-## Objetivo
+## Implementado
 
-Controlar duas dimensões de forma integrada:
+- modelo PostgreSQL com eventos, centros de custo, plano de contas, pessoas, contas financeiras, receitas, despesas, parcelas, baixas, rateios, orçamentos, anexos, conciliação e auditoria;
+- plano de contas inicial específico para produção de eventos;
+- consultas de fluxo de caixa, DRE, inadimplência, clientes, fornecedores e rentabilidade;
+- API TypeScript autenticada para consultar cadastros, criar lançamentos e alimentar o dashboard.
 
-- resultado individual de cada evento ou projeto;
-- despesas internas, fluxo de caixa e resultado geral da empresa.
+## Instalação
 
-## Módulos previstos
+1. Instale Node.js 22 e PostgreSQL 16.
+2. Copie `.env.example` para `.env`.
+3. Configure `DATABASE_URL`, `INTERNAL_API_TOKEN` e `ORGANIZATION_ID`.
+4. Execute `npm install`.
+5. Execute o arquivo `database/schema.sql` no PostgreSQL.
+6. Cadastre a empresa e use seu UUID em `ORGANIZATION_ID`.
+7. Execute `npm run dev`.
 
-- empresas e unidades;
-- usuários, perfis e permissões;
-- eventos, projetos e centros de custo;
-- clientes, fornecedores, funcionários e freelancers;
-- plano de contas;
-- contas bancárias e caixas;
-- receitas, despesas, parcelas, recorrências e rateios;
-- pagamentos, recebimentos, baixas e estornos;
-- orçamento previsto, contratado e realizado;
-- anexos, comprovantes e auditoria;
-- fluxo de caixa, DRE e relatórios gerenciais.
+Nunca publique o arquivo `.env` ou credenciais no GitHub.
 
-## Tecnologia proposta
+## Rotas iniciais
 
-- Next.js + TypeScript;
-- PostgreSQL;
-- API com validação e controle de acesso;
-- exportações em Excel e PDF.
+- `GET /api/health`
+- `GET /api/dashboard`
+- `GET /api/projects`
+- `GET /api/parties`
+- `GET /api/chart-accounts`
+- `GET /api/cost-centers`
+- `GET /api/financial-accounts`
+- `GET /api/entries`
+- `POST /api/entries`
+- `GET /api/reports/projects`
+- `GET /api/reports/cash-flow`
 
-> O banco nunca deve armazenar valores monetários em ponto flutuante. Os valores são guardados em centavos (BIGINT).
+Todas as rotas financeiras exigem `Authorization: Bearer <token>`. Valores monetários são armazenados em centavos com `BIGINT`.
